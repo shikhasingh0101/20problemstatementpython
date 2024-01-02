@@ -56,8 +56,8 @@ class TimeTrackingSystem:
 
 
 # Example usage:
-employee1 = Employee("Prem Thakare")
-employee2 = Employee("Piyush Singh")
+employee1 = Employee("shikha singh")
+employee2 = Employee("rohini singh")
 
 project1 = Project("Project A")
 project2 = Project("Project B")
