@@ -1,31 +1,32 @@
 #Write a Python program to create a person class. Include attributes like name,
 #country and date of birth. Implement a method to determine the person's age.
 
-import datetime
-from datetime import date
+from datetime import datetime
 
-class Person():
-    def __init__(self,name,country,date_r,current,age):
-        self.name=name
-        self.country=country
-        self.date_r=date_r
-        self.current=current
-        self.age=age
-    def age_cal(self):
-        if self.current < date_r:
-            print("Invalid dob")
-        else:
-            self.age=self.current-self.date_r
-    def display(self):
-        print(f"\n|      User Details     |\n\nName of User:{self.name}\nCountry of User:{self.country}\nAge of User:{self.age}")
+class Person:
+    def __init__(self, name, country, DOB):
+        self.name = name
+        self.country = country
+        self.DOB = DOB
 
-name=input("Enter your name:")
-country=input("Enter your country:")
-y,m,d=[int(i) for i in input("Enter your Date of Birth(eg:yyyy-mm-dd):").split("-")]
-date_r=datetime.date(y, m, d)
-current=date.today()
-current=date.year(current)
-age=0
-obj=Person(name,country,date_r,current,age)
-obj.age_cal()
-obj.display()
+    def calculate_age(self, today_date):
+        age = today_date.year - self.DOB.year - ((today_date.month, today_date.day) < (self.DOB.month, self.DOB.day))
+        return age
+
+# Get user input
+name = input("Enter your name: ")
+country = input("Enter your country: ")
+
+# Get the date of birth as a string and convert it to a datetime object
+DOB_str = input("Enter your DOB (YYYY-MM-DD): ")
+DOB = datetime.strptime(DOB_str, "%Y-%m-%d")
+
+# Get today's date
+today_date = datetime.now()
+
+# Create a Person object
+person = Person(name, country, DOB)
+
+# Calculate and display the age
+age = person.calculate_age(today_date)
+print(f"Age: {age} years")
