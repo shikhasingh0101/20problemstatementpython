@@ -49,6 +49,7 @@ def main():
         print("2)Converse Shoes")
         print("3)Combat Shoes")
         print("4)Sandals")
+        print("5)Exit")
         choice = int(input("\nWhat do you want to add: "))
 
         if choice == 1:
@@ -90,6 +91,9 @@ def main():
                 print("Invalid choice")
             sandal = Sandal(color, brand, openOrClosed, waterProof)
             sandal.add_shoe(sandal)
+        elif choice == 5:
+            print("thankyou for showing us.")
+            break
 
 
 if __name__=="__main__":
